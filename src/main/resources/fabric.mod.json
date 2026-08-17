@@ -1,0 +1,60 @@
+{
+	"schemaVersion": 1,
+	"id": "${id}",
+	"version": "${version}",
+	"name": "${name}",
+	"description": "${desc}",
+	"authors": [
+		{
+			"name": "axialeaa",
+			"contact": {
+				"homepage": "https://github.com/axialeaa"
+			}
+		}
+	],
+	"contributors": [
+        {
+            "name": "Person",
+            "contact": {
+                "homepage": "https://github.com/Person"
+            }
+        }
+    ],
+	"contact": {
+		"homepage": "https://modrinth.com/mod/${modrinth}",
+		"sources": "https://github.com/axialeaa/${repository}",
+		"issues": "https://github.com/axialeaa/${repository}/issues"
+	},
+	"license": "LGPLv3",
+	"icon": "assets/${id}/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.axialeaa.modid.ExampleMod"
+		],
+		"client": [
+			"com.axialeaa.modid.ExampleModClient"
+		],
+		"fabric-datagen": [
+			"com.axialeaa.modid.data.ExampleModDataGenerator"
+		]
+	},
+	"accessWidener" : "${id}.classtweaker",
+	"custom": {
+		"modmenu": {
+			"links": {
+				"modmenu.github_releases": "https://github.com/axialeaa/${repository}/releases",
+				"modmenu.modrinth": "https://modrinth.com/mod/${modrinth}"
+			}
+		}
+	},
+	"mixins": [
+		"${id}.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=${loader}",
+		"minecraft": "${target}",
+		"java": ">=${java}",
+		"fabric-api": "*"
+	}
+}
