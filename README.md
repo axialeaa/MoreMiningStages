@@ -11,11 +11,6 @@
     <img alt="github" height="64" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/available/github_vector.svg">
   </a>
 
-  <!-- Gallery -->
-  <a href=https://modrinth.com/mod/more-mining-stages/gallery>
-    <img alt="modrinth-gallery" height="64" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/documentation/modrinth-gallery_vector.svg">
-  </a>
-
   <!-- Ko-Fi -->
   <a href=https://ko-fi.com/axialeaa>
       <img alt="kofi-singular" height="64" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy-minimal/donate/kofi-singular_vector.svg">
