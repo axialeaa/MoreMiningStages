@@ -11,7 +11,7 @@ public class MultiPlayerGameModeMixin {
 
 	@ModifyConstant(method = "getDestroyStage", constant = @Constant(floatValue = 10.0F))
 	private float test(float constant) {
-		return (float) MoreMiningStages.getMiningStages().getFrameCount();
+		return (float) MoreMiningStages.getDestroyTypes().size();
 	}
 
 }

@@ -1,18 +1,19 @@
 package com.axialeaa.moreminingstages;
 
-import com.axialeaa.moreminingstages.data.MiningStagesDefinition;
 import com.axialeaa.moreminingstages.data.MiningStagesReloadListener;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.resource.v1.ResourceLoader;
 import net.fabricmc.fabric.api.resource.v1.pack.PackActivationType;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.ModContainer;
-import net.minecraft.client.resources.model.ModelBakery;
+import net.minecraft.client.renderer.rendertype.RenderType;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MoreMiningStages implements ClientModInitializer {
 
@@ -22,7 +23,7 @@ public class MoreMiningStages implements ClientModInitializer {
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_NAME);
 	private static final ModContainer MOD_CONTAINER = FabricLoader.getInstance().getModContainer(MOD_ID).orElseThrow();
 
-	@Nullable public static MiningStagesDefinition miningStages = null;
+	private static final List<RenderType> DESTROY_TYPES = new ArrayList<>();
 
 	@Override
 	public void onInitializeClient() {
@@ -41,11 +42,7 @@ public class MoreMiningStages implements ClientModInitializer {
 		return Identifier.fromNamespaceAndPath(MOD_ID, path);
 	}
 
-	public static MiningStagesDefinition getMiningStages() {
-		if (miningStages == null)
-			miningStages = new MiningStagesDefinition(ModelBakery.BREAKING_LOCATIONS);
-
-		return miningStages;
+	public static List<RenderType> getDestroyTypes() {
+		return DESTROY_TYPES;
 	}
-
 }

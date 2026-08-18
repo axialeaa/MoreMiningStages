@@ -5,9 +5,8 @@
   "client": [
     "BlockDestructionProgressMixin",
     "ClientLevelMixin",
-    "MultiPlayerGameModeMixin",
-    "SubmitNodeCollectionMixin",
-    "SubmitNodeCollectionMixinSquared"
+    "ModelBakeryMixin",
+    "MultiPlayerGameModeMixin"
   ],
   "injectors": {
     "defaultRequire": 1

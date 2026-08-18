@@ -11,7 +11,7 @@ public class BlockDestructionProgressMixin {
 
 	@ModifyConstant(method = "setProgress", constant = @Constant(intValue = 10))
 	private int test(int constant) {
-		return MoreMiningStages.getMiningStages().getFrameCount();
+		return MoreMiningStages.getDestroyTypes().size();
 	}
 
 }
