@@ -1,0 +1,24 @@
+{
+  "textures": [
+    "double_up:block/destroy_stage_pre0",
+    "block/destroy_stage_0",
+    "double_up:block/destroy_stage_pre1",
+    "block/destroy_stage_1",
+    "double_up:block/destroy_stage_pre2",
+    "block/destroy_stage_2",
+    "double_up:block/destroy_stage_pre3",
+    "block/destroy_stage_3",
+    "double_up:block/destroy_stage_pre4",
+    "block/destroy_stage_4",
+    "double_up:block/destroy_stage_pre5",
+    "block/destroy_stage_5",
+    "double_up:block/destroy_stage_pre6",
+    "block/destroy_stage_6",
+    "double_up:block/destroy_stage_pre7",
+    "block/destroy_stage_7",
+    "double_up:block/destroy_stage_pre8",
+    "block/destroy_stage_8",
+    "double_up:block/destroy_stage_pre9",
+    "block/destroy_stage_9"
+  ]
+}

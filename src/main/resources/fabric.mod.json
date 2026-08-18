@@ -3,7 +3,7 @@
 	"id": "${id}",
 	"version": "${version}",
 	"name": "${name}",
-	"description": "${desc}",
+	"description": "${description}",
 	"authors": [
 		{
 			"name": "axialeaa",
@@ -21,22 +21,16 @@
         }
     ],
 	"contact": {
-		"homepage": "https://modrinth.com/mod/${modrinth}",
+		"homepage": "https://modrinth.com/mod/${id}",
 		"sources": "https://github.com/axialeaa/${repository}",
 		"issues": "https://github.com/axialeaa/${repository}/issues"
 	},
 	"license": "LGPLv3",
 	"icon": "assets/${id}/icon.png",
-	"environment": "*",
+	"environment": "client",
 	"entrypoints": {
-		"main": [
-			"com.axialeaa.modid.ExampleMod"
-		],
 		"client": [
-			"com.axialeaa.modid.ExampleModClient"
-		],
-		"fabric-datagen": [
-			"com.axialeaa.modid.data.ExampleModDataGenerator"
+			"com.axialeaa.${id}.MoreMiningStages"
 		]
 	},
 	"accessWidener" : "${id}.classtweaker",
@@ -44,7 +38,7 @@
 		"modmenu": {
 			"links": {
 				"modmenu.github_releases": "https://github.com/axialeaa/${repository}/releases",
-				"modmenu.modrinth": "https://modrinth.com/mod/${modrinth}"
+				"modmenu.modrinth": "https://modrinth.com/mod/${id}"
 			}
 		}
 	},

@@ -1,4 +1,4 @@
 @NullMarked
-package com.axialeaa.modid.data;
+package com.axialeaa.moreminingstages.data;
 
 import org.jspecify.annotations.NullMarked;

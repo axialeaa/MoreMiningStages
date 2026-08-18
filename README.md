@@ -7,12 +7,12 @@ image link
   </a>
 
   <!-- GitHub -->
-  <a href=https://github.com/axialeaa/ExampleMod>
+  <a href=https://github.com/axialeaa/MoreMiningStages>
     <img alt="github" height="64" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/available/github_vector.svg">
   </a>
 
   <!-- Gallery -->
-  <a href=https://modrinth.com/mod/mod-id/gallery>
+  <a href=https://modrinth.com/mod/moreminingstages/gallery>
     <img alt="modrinth-gallery" height="64" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/documentation/modrinth-gallery_vector.svg">
   </a>
 
@@ -28,5 +28,5 @@ image link
 </p>
 
 <p align=center>
-    <b>Example Mod</b> is a ...
+    <b>More Mining Stages</b> is a ...
 </p>

@@ -19,14 +19,8 @@ base {
 }
 
 repositories {
-    maven {
-        name("CaffeineMC")
-        url("https://maven.caffeinemc.net/releases")
-    }
-    maven {
-        name("Terraformers")
-        url("https://maven.terraformersmc.com/")
-    }
+    maven { url = "https://maven.bawnorton.com/releases" }
+    maven { url = "https://maven.terraformersmc.com/" }
 }
 
 publishMods {
@@ -69,6 +63,8 @@ dependencies {
     implementation("net.fabricmc:fabric-loader:${loader_version}")
     implementation("net.fabricmc.fabric-api:fabric-api:${fabric_api_version}")
     runtimeOnly("com.terraformersmc:modmenu:${modmenu_version}")
+
+    include(implementation(annotationProcessor("com.github.bawnorton.mixinsquared:mixinsquared-fabric:${mixinsquared_version}")))
 }
 
 processResources {
@@ -80,6 +76,7 @@ processResources {
     inputs.property("loader", project.loader_version)
     inputs.property("java", javaVersionNumber)
     inputs.property("repository", project.repository_url)
+    inputs.property("modrinth", project.modrinth_project_id)
 
     Map<String, Object> map = [
             "id": inputs.properties.id,
@@ -89,7 +86,8 @@ processResources {
             "target": inputs.properties.target,
             "loader": inputs.properties.loader,
             "java": inputs.properties.java,
-            "repository": inputs.properties.repository
+            "repository": inputs.properties.repository,
+            "modrinth": inputs.properties.modrinth
     ]
 
     filesMatching("fabric.mod.json") {
@@ -112,8 +110,6 @@ loom {
             )
             jvmArguments.addAll(
                     "-XX:+UseG1GC", // cannot use ZGC for enhanced class redef
-                    "-XX:+UseCompactObjectHeaders",
-                    "-XX:+UseStringDeduplication",
                     "-XX:+AllowEnhancedClassRedefinition"
             )
         }

@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "package": "com.axialeaa.moreminingstages.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "client": [
+    "BlockDestructionProgressMixin",
+    "ClientLevelMixin",
+    "MultiPlayerGameModeMixin",
+    "SubmitNodeCollectionMixin",
+    "SubmitNodeCollectionMixinSquared"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
