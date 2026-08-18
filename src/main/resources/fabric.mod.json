@@ -14,9 +14,9 @@
 	],
 	"contributors": [
         {
-            "name": "Person",
+            "name": "CallMeEcho (Helper)",
             "contact": {
-                "homepage": "https://github.com/Person"
+                "homepage": "https://callmeecho.dev"
             }
         }
     ],
@@ -38,7 +38,8 @@
 		"modmenu": {
 			"links": {
 				"modmenu.github_releases": "https://github.com/axialeaa/${repository}/releases",
-				"modmenu.modrinth": "https://modrinth.com/mod/${id}"
+				"modmenu.modrinth": "https://modrinth.com/mod/${id}",
+                "modmenu.discord": "https://discord.gg/hfVmpeQhe8"
 			}
 		}
 	},
