@@ -1,8 +1,5 @@
-package com.axialeaa.moreminingstages.data;
+package com.axialeaa.moreminingstages;
 
-import com.axialeaa.moreminingstages.MoreMiningStages;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.JsonOps;
 import net.fabricmc.fabric.api.resource.v1.ResourceLoader;
@@ -22,7 +19,7 @@ import java.util.List;
 @NullMarked
 public class MiningStagesReloadListener implements ResourceManagerReloadListener {
 
-	public static final Identifier ID = MoreMiningStages.id("mining_stages");
+	private static final Identifier ID = MoreMiningStages.id("mining_stages");
 	private static final Codec<List<Identifier>> CODEC = Identifier.CODEC.listOf().fieldOf("textures").codec();
 
 	@Override
@@ -30,25 +27,30 @@ public class MiningStagesReloadListener implements ResourceManagerReloadListener
 		Identifier id = ID.withSuffix(".json");
 
 		try (BufferedReader reader = manager.openAsReader(id)) {
-			JsonElement json = StrictJsonParser.parse(reader);
-			List<Identifier> textures = CODEC.parse(JsonOps.INSTANCE, json).getOrThrow();
+			List<RenderType> destroyTypes = MoreMiningStages.getDestroyTypes();
+			destroyTypes.clear();
 
-			MoreMiningStages.getDestroyTypes().clear();
-			for (Identifier texture : textures) {
-				Identifier textureLocation = texture.withPath(path -> "textures/" + path + ".png");
-
-				MoreMiningStages.getDestroyTypes().add(RenderTypes.crumbling(textureLocation));
-			}
-		} catch (Exception e) {
+			for (Identifier texture : readTextures(reader))
+				destroyTypes.add(RenderTypes.crumbling(rectifyPath(texture)));
+		}
+		catch (Exception e) {
 			MoreMiningStages.LOGGER.error("Error occurred while loading {}", id, e);
 		}
 	}
 
-	public static void register() {
+	static void register() {
 		ResourceLoader resourceLoader = ResourceLoader.get(PackType.CLIENT_RESOURCES);
 
 		resourceLoader.addListenerOrdering(ResourceReloaderKeys.AFTER_VANILLA, ID);
 		resourceLoader.registerReloadListener(ID, new MiningStagesReloadListener());
+	}
+
+	private static List<Identifier> readTextures(BufferedReader reader) {
+		return CODEC.parse(JsonOps.INSTANCE, StrictJsonParser.parse(reader)).getOrThrow();
+	}
+
+	private static Identifier rectifyPath(Identifier texture) {
+		return texture.withPath(path -> "textures/" + path + ".png");
 	}
 
 }

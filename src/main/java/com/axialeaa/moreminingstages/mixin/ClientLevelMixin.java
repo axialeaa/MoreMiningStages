@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.ModifyConstant;
 public class ClientLevelMixin {
 
 	@ModifyConstant(method = "destroyBlockProgress", constant = @Constant(intValue = 10))
-	private int test(int constant) {
+	private int modifyStageCount(int constant) {
 		return MoreMiningStages.getDestroyTypes().size();
 	}
 

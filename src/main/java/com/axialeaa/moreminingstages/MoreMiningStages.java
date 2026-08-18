@@ -1,6 +1,5 @@
 package com.axialeaa.moreminingstages;
 
-import com.axialeaa.moreminingstages.data.MiningStagesReloadListener;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.resource.v1.ResourceLoader;
 import net.fabricmc.fabric.api.resource.v1.pack.PackActivationType;
@@ -27,10 +26,8 @@ public class MoreMiningStages implements ClientModInitializer {
 
 	@Override
 	public void onInitializeClient() {
-		LOGGER.info("{} initialized! Insert funny joke here.", MOD_NAME);
 		MiningStagesReloadListener.register();
-
-		registerPack("double_up", PackActivationType.DEFAULT_ENABLED);
+		registerPack("double_destruction", PackActivationType.DEFAULT_ENABLED);
 	}
 
 	private static void registerPack(String path, PackActivationType activationType) {
@@ -45,4 +42,5 @@ public class MoreMiningStages implements ClientModInitializer {
 	public static List<RenderType> getDestroyTypes() {
 		return DESTROY_TYPES;
 	}
+
 }

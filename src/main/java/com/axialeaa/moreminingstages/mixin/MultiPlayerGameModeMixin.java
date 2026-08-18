@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.ModifyConstant;
 public class MultiPlayerGameModeMixin {
 
 	@ModifyConstant(method = "getDestroyStage", constant = @Constant(floatValue = 10.0F))
-	private float test(float constant) {
+	private float modifyStageCount(float constant) {
 		return (float) MoreMiningStages.getDestroyTypes().size();
 	}
 

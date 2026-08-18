@@ -30,7 +30,7 @@
 	"environment": "client",
 	"entrypoints": {
 		"client": [
-			"com.axialeaa.${id}.MoreMiningStages"
+			"com.axialeaa.moreminingstages.MoreMiningStages"
 		]
 	},
 	"accessWidener" : "${id}.classtweaker",
