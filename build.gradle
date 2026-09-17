@@ -6,7 +6,7 @@ plugins {
 }
 
 String mcVersion = project.build_version
-String updateName = "$mod_name $mod_version ($mcVersion)$update_name_suffix"
+String updateName = "$mod_name $mod_version for Minecraft ($mcVersion)"
 
 JavaVersion javaVersion = JavaVersion.VERSION_25
 int javaVersionNumber = 25
@@ -35,7 +35,7 @@ publishMods {
         accessToken = providers.gradleProperty("secrets.github_token")
         repository = repository_url
         commitish = "master"
-        tagName = mod_version
+        tagName = "$project.mod_version+$mcVersion"
     }
 
     modrinth {
