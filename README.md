@@ -23,7 +23,7 @@
 </p>
 
 <p align=center>
-    <b>More Mining Stages</b> allows for full, resource-driven customization of the block breaking animation frames! It also contains a built-in resource pack which doubles the number of frames in the animation in a very vanilla-friendly style.
+    <b>More Mining Stages</b> allows for full, resource-driven customization of the block breaking animation! It also contains a built-in resource pack which doubles the number of frames in the animation in a very vanilla-friendly style.
 </p>
 
 <h2><p align=center>📂 Resource Pack Guide</p></h2>
