@@ -6,7 +6,7 @@ plugins {
 }
 
 String mcVersion = project.build_version
-String updateName = "$mod_name $mod_version for Minecraft ($mcVersion)"
+String updateName = "$mod_name $mod_version for Minecraft $mcVersion"
 
 JavaVersion javaVersion = JavaVersion.VERSION_25
 int javaVersionNumber = 25
