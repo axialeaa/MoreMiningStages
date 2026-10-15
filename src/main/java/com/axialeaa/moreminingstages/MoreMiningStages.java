@@ -23,6 +23,7 @@ public class MoreMiningStages implements ClientModInitializer {
 	private static final ModContainer MOD_CONTAINER = FabricLoader.getInstance().getModContainer(MOD_ID).orElseThrow();
 
 	private static final List<RenderType> DESTROY_TYPES = new ArrayList<>();
+	private static final List<RenderType> DESTROY_TYPES_OIT = new ArrayList<>();
 
 	@Override
 	public void onInitializeClient() {
@@ -41,6 +42,10 @@ public class MoreMiningStages implements ClientModInitializer {
 
 	public static List<RenderType> getDestroyTypes() {
 		return DESTROY_TYPES;
+	}
+
+	public static List<RenderType> getDestroyTypesOit() {
+		return DESTROY_TYPES_OIT;
 	}
 
 }

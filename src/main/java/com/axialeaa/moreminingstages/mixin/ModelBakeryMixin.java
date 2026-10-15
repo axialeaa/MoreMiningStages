@@ -14,7 +14,7 @@ import java.util.stream.Stream;
 @Mixin(ModelBakery.class)
 public class ModelBakeryMixin {
 
-    @Redirect(method = "<clinit>", at = @At(value = "INVOKE", target = "Ljava/util/stream/Stream;collect(Ljava/util/stream/Collector;)Ljava/lang/Object;", ordinal = 2))
+    @Redirect(method = "<clinit>", at = @At(value = "INVOKE", target = "Ljava/util/stream/Stream;collect(Ljava/util/stream/Collector;)Ljava/lang/Object;", ordinal = 4))
     private static Object overrideDestroyTypes(Stream<RenderType> instance, Collector<?, ?, ?> arCollector) {
         List<RenderType> moddedDestroyTypes = MoreMiningStages.getDestroyTypes();
         moddedDestroyTypes.clear();
@@ -23,5 +23,15 @@ public class ModelBakeryMixin {
 
         return moddedDestroyTypes;
     }
+
+	@Redirect(method = "<clinit>", at = @At(value = "INVOKE", target = "Ljava/util/stream/Stream;collect(Ljava/util/stream/Collector;)Ljava/lang/Object;", ordinal = 5))
+	private static Object overrideDestroyTypesOit(Stream<RenderType> instance, Collector<?, ?, ?> arCollector) {
+		List<RenderType> moddedDestroyTypes = MoreMiningStages.getDestroyTypesOit();
+		moddedDestroyTypes.clear();
+
+		instance.forEach(moddedDestroyTypes::add);
+
+		return moddedDestroyTypes;
+	}
 
 }

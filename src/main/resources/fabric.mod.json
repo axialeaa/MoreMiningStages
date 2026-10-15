@@ -21,7 +21,7 @@
         }
     ],
 	"contact": {
-		"homepage": "https://modrinth.com/mod/${id}",
+		"homepage": "https://modrinth.com/mod/${modrinth}",
 		"sources": "https://github.com/axialeaa/${repository}",
 		"issues": "https://github.com/axialeaa/${repository}/issues"
 	},
@@ -37,7 +37,7 @@
 		"modmenu": {
 			"links": {
 				"modmenu.github_releases": "https://github.com/axialeaa/${repository}/releases",
-				"modmenu.modrinth": "https://modrinth.com/mod/${id}",
+				"modmenu.modrinth": "https://modrinth.com/mod/${modrinth}",
                 "modmenu.discord": "https://discord.gg/hfVmpeQhe8"
 			}
 		}

@@ -20,7 +20,7 @@ import java.util.List;
 public class MiningStagesReloadListener implements ResourceManagerReloadListener {
 
 	private static final Identifier ID = MoreMiningStages.id("mining_stages");
-	private static final Codec<List<Identifier>> CODEC = Identifier.CODEC.listOf().fieldOf("textures").codec();
+	public static final Codec<List<MiningStage>> CODEC = MiningStage.LIST_CODEC.fieldOf("textures").codec();
 
 	@Override
 	public void onResourceManagerReload(ResourceManager manager) {
@@ -28,10 +28,15 @@ public class MiningStagesReloadListener implements ResourceManagerReloadListener
 
 		try (BufferedReader reader = manager.openAsReader(id)) {
 			List<RenderType> destroyTypes = MoreMiningStages.getDestroyTypes();
-			destroyTypes.clear();
+			List<RenderType> destroyTypesOit = MoreMiningStages.getDestroyTypesOit();
 
-			for (Identifier texture : readTextures(reader))
-				destroyTypes.add(RenderTypes.crumbling(rectifyPath(texture)));
+			destroyTypes.clear();
+			destroyTypesOit.clear();
+
+			for (MiningStage miningStage : readMiningStages(reader)) {
+				destroyTypes.add(RenderTypes.crumbling(rectifyPath(miningStage.texture())));
+				destroyTypesOit.add(RenderTypes.crumbling(rectifyPath(miningStage.textureOit())));
+			}
 		}
 		catch (Exception e) {
 			MoreMiningStages.LOGGER.error("Error occurred while loading {}", id, e);
@@ -45,7 +50,7 @@ public class MiningStagesReloadListener implements ResourceManagerReloadListener
 		resourceLoader.registerReloadListener(ID, new MiningStagesReloadListener());
 	}
 
-	private static List<Identifier> readTextures(BufferedReader reader) {
+	private static List<MiningStage> readMiningStages(BufferedReader reader) {
 		return CODEC.parse(JsonOps.INSTANCE, StrictJsonParser.parse(reader)).getOrThrow();
 	}
 

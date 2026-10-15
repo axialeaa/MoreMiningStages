@@ -35,7 +35,7 @@ publishMods {
         accessToken = providers.gradleProperty("secrets.github_token")
         repository = repository_url
         commitish = "master"
-        tagName = "$project.mod_version+$mcVersion"
+        tagName = "release/$project.mod_version+$mcVersion"
     }
 
     modrinth {
@@ -60,7 +60,8 @@ dependencies {
     minecraft("com.mojang:minecraft:$mcVersion")
 
     implementation("net.fabricmc:fabric-loader:${loader_version}")
-    implementation("net.fabricmc.fabric-api:fabric-api:${fabric_api_version}")
+    implementation("net.fabricmc.fabric-api:fabric-api:${fabric_api_version}+$mcVersion")
+
     runtimeOnly("com.terraformersmc:modmenu:${modmenu_version}")
 }
 

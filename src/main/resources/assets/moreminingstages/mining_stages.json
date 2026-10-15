@@ -1,14 +1,44 @@
 {
   "textures": [
-    "block/destroy_stage_0",
-    "block/destroy_stage_1",
-    "block/destroy_stage_2",
-    "block/destroy_stage_3",
-    "block/destroy_stage_4",
-    "block/destroy_stage_5",
-    "block/destroy_stage_6",
-    "block/destroy_stage_7",
-    "block/destroy_stage_8",
-    "block/destroy_stage_9"
+    {
+      "texture": "block/destroy_stage_0",
+      "texture_oit": "block/destroy_oit_stage_0"
+    },
+    {
+      "texture": "block/destroy_stage_1",
+      "texture_oit": "block/destroy_oit_stage_1"
+    },
+    {
+      "texture": "block/destroy_stage_2",
+      "texture_oit": "block/destroy_oit_stage_2"
+    },
+    {
+      "texture": "block/destroy_stage_3",
+      "texture_oit": "block/destroy_oit_stage_3"
+    },
+    {
+      "texture": "block/destroy_stage_4",
+      "texture_oit": "block/destroy_oit_stage_4"
+    },
+    {
+      "texture": "block/destroy_stage_5",
+      "texture_oit": "block/destroy_oit_stage_5"
+    },
+    {
+      "texture": "block/destroy_stage_6",
+      "texture_oit": "block/destroy_oit_stage_6"
+    },
+    {
+      "texture": "block/destroy_stage_7",
+      "texture_oit": "block/destroy_oit_stage_7"
+    },
+    {
+      "texture": "block/destroy_stage_8",
+      "texture_oit": "block/destroy_oit_stage_8"
+    },
+    {
+      "texture": "block/destroy_stage_9",
+      "texture_oit": "block/destroy_oit_stage_9"
+    }
   ]
 }
