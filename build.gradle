@@ -52,6 +52,7 @@ publishMods {
     discord {
         webhookUrl = providers.gradleProperty("secrets.discord_webhook_url")
         username = "$mod_name Update Tracker"
+        setPlatforms(publishMods.platforms.modrinth)
         content = changelog.map { "# " + updateName + '\n' + it + "\n-# ||<@&1201276927428804741>||" }
     }
 }

@@ -36,12 +36,39 @@ In the following example, 3 frames have been added to the array. You can add as 
 
 ```JSON5
 {
-  "textures": [
+  "frames": [
     "block/destroy_stage_0", // vanilla reference with implicit namespace
     "minecraft:block/destroy_stage_1", // vanilla reference with explicit namespace
     "example_pack:my_texture" // non-vanilla reference for outside textures/block/
+    // ...
   ]
 }
 ```
 
-For what it's worth, this is the same JSON schema that is used for particle references!
+<h3>🪟 Order-Independent Transparency</h3>
+
+Since 26.3, each texture must also have a counterpart for translucent blocks (e.g. stained glass) when Improved Transparency is enabled in the video settings.
+
+**More Mining Stages** handles this by expecting textures at the same specified locations with the suffix `_oit`. If you'd like to specify unique paths instead, you can use the following syntax in place of the simple string:
+
+```JSON5
+{
+  "frames": [
+    {
+      "texture": "example_pack:first_texture",
+      "texture_oit": "example_pack:first_oit_texture"
+    },
+    {
+      "texture": "example_pack:second_texture",
+      "texture_oit": "example_pack:second_oit_texture"
+    },
+    "example_pack:third_texture_with_suffixed",
+    // ...
+  ]
+}
+```
+
+Note that the file for vanilla Minecraft uses this because its OIT textures are named `destroy_oit_stage_<index>` and __not__ `destroy_stage_<index>_oit`. It was handled this way for 3 reasons: 
+- To be more convenient for resource pack developers
+- To be easier to update resource packs from 26.2
+- To provide resource packs with additional backwards compatibility for 26.2

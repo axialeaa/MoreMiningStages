@@ -1,6 +1,5 @@
 package com.axialeaa.moreminingstages;
 
-import com.mojang.serialization.Codec;
 import com.mojang.serialization.JsonOps;
 import net.fabricmc.fabric.api.resource.v1.ResourceLoader;
 import net.fabricmc.fabric.api.resource.v1.reloader.ResourceReloaderKeys;
@@ -20,7 +19,6 @@ import java.util.List;
 public class MiningStagesReloadListener implements ResourceManagerReloadListener {
 
 	private static final Identifier ID = MoreMiningStages.id("mining_stages");
-	public static final Codec<List<MiningStage>> CODEC = MiningStage.LIST_CODEC.fieldOf("textures").codec();
 
 	@Override
 	public void onResourceManagerReload(ResourceManager manager) {
@@ -35,7 +33,7 @@ public class MiningStagesReloadListener implements ResourceManagerReloadListener
 
 			for (MiningStage miningStage : readMiningStages(reader)) {
 				destroyTypes.add(RenderTypes.crumbling(rectifyPath(miningStage.texture())));
-				destroyTypesOit.add(RenderTypes.crumbling(rectifyPath(miningStage.textureOit())));
+				destroyTypesOit.add(RenderTypes.crumbling(rectifyPath(miningStage.getOrCreateTextureOit())));
 			}
 		}
 		catch (Exception e) {
@@ -51,7 +49,7 @@ public class MiningStagesReloadListener implements ResourceManagerReloadListener
 	}
 
 	private static List<MiningStage> readMiningStages(BufferedReader reader) {
-		return CODEC.parse(JsonOps.INSTANCE, StrictJsonParser.parse(reader)).getOrThrow();
+		return MiningStage.LIST_CODEC.parse(JsonOps.INSTANCE, StrictJsonParser.parse(reader)).getOrThrow();
 	}
 
 	private static Identifier rectifyPath(Identifier texture) {
