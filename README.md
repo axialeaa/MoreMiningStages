@@ -36,7 +36,7 @@ In the following example, 3 frames have been added to the array. You can add as 
 
 ```JSON5
 {
-  "frames": [
+  "textures": [
     "block/destroy_stage_0", // vanilla reference with implicit namespace
     "minecraft:block/destroy_stage_1", // vanilla reference with explicit namespace
     "example_pack:my_texture" // non-vanilla reference for outside textures/block/
@@ -53,7 +53,7 @@ Since 26.3, each texture must also have a counterpart for translucent blocks (e.
 
 ```JSON5
 {
-  "frames": [
+  "textures": [
     {
       "texture": "example_pack:first_texture",
       "texture_oit": "example_pack:first_oit_texture"

@@ -25,7 +25,7 @@ public record MiningStage(Identifier texture, Optional<Identifier> textureOit) {
 			miningStage -> miningStage.textureOit.isPresent() ? Either.right(miningStage) : Either.left(miningStage)
 		);
 
-	public static final Codec<List<MiningStage>> LIST_CODEC = CODEC.listOf().fieldOf("frames").codec();
+	public static final Codec<List<MiningStage>> LIST_CODEC = CODEC.listOf().fieldOf("textures").codec();
 
 	public static MiningStage createWithDefaultOit(Identifier texture) {
 		return new MiningStage(texture, Optional.empty());
